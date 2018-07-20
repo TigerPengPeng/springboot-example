@@ -14,7 +14,7 @@ import java.io.IOException;
 
 /**
  * @author huangpeng
- *         date 2018年07月20日
+ *         date 2018年07月22日
  *         desc
  */
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {

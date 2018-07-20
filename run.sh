@@ -78,7 +78,7 @@ function getJVMMemSizeOpt() {
 	let maxSize_lvl6=3*1024
 	let maxSize_lvl7=1*1024
 
-	jvmSize="4g"
+	jvmSize="2g"
 	MaxMetaspaceSize="256m"
 	ReservedCodeCacheSize="128m"
 	InitialCodeCacheSize="128m"

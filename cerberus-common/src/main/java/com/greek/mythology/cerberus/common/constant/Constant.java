@@ -3,7 +3,7 @@
  * All rights reserved.
  * 
  */
-package com.greek.mythology.cerberus.common;
+package com.greek.mythology.cerberus.common.constant;
 
 /**
  * @author huangpeng

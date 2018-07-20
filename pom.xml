@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>cerberus-common</module>
+		<module>cerberus-service</module>
 		<module>cerberus-app</module>
 	</modules>
 
@@ -26,6 +27,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<apache.commons.version>2.5</apache.commons.version>
+		<apache.commons3.version>3.3.1</apache.commons3.version>
+		<google.guava.version>20</google.guava.version>
 	</properties>
 
 	<dependencyManagement>
@@ -35,6 +39,34 @@
 				<artifactId>cerberus-common</artifactId>
 				<version>${project.cerberus.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.greek.mythology</groupId>
+				<artifactId>cerberus-service</artifactId>
+				<version>${project.cerberus.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${google.guava.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${apache.commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${apache.commons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${apache.commons3.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>

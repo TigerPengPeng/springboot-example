@@ -5,67 +5,36 @@
  */
 package com.greek.mythology.cerberus.app.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.greek.mythology.cerberus.app.filter.AuthTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-/**
- * @author huangpeng
- *         date 2018年07月20日
- *         desc
- */
-@Configuration
 @EnableWebSecurity
+@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
-
-    @Autowired
-    private RequestAwareAuthenticationSuccessHandler authenticationSuccessHandler;
-
-    @Autowired
-    private SimpleUrlAuthenticationFailureHandler authenticationFailHandler;
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
-    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(restAuthenticationEntryPoint)
-                .and()
                 .authorizeRequests()
                 .antMatchers("/monitor/alive", "/login").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .successHandler(authenticationSuccessHandler)
-                .failureHandler(authenticationFailHandler)
-                .and()
-                .logout();
+                .addFilterAfter(authTokenFilter(), BasicAuthenticationFilter.class)
+                .exceptionHandling()
+                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @Bean
-    public RestAuthenticationEntryPoint restAuthenticationEntryPoint() {
-        return new RestAuthenticationEntryPoint();
+    public AuthTokenFilter authTokenFilter() {
+        return new AuthTokenFilter();
     }
 
-    @Bean
-    public RequestAwareAuthenticationSuccessHandler authenticationSuccessHandler(){
-        return new RequestAwareAuthenticationSuccessHandler();
-    }
-
-    @Bean
-    public SimpleUrlAuthenticationFailureHandler authenticationFailHandler(){
-        return new SimpleUrlAuthenticationFailureHandler();
-    }
 }
