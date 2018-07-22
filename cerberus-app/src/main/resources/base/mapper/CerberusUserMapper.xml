@@ -13,10 +13,14 @@
         id, create_time, update_time, username
     </sql>
 
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectListByWrapper" resultMap="BaseResultMap">
         SELECT
           <include refid="Base_Column_List" />
         FROM cerberus_user
+        <!-- 判断 wrapper 是否为空 emptyOfWhere -->
+        <where>
+            ${ew.sqlSegment}
+        </where>
     </select>
 
 </mapper>

@@ -5,6 +5,8 @@
  */
 package com.greek.mythology.cerberus.app.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.greek.mythology.cerberus.common.dao.UserInfoDo;
 import com.greek.mythology.cerberus.common.service.UserInfoBO;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
 import com.greek.mythology.cerberus.service.dao.UserDao;
@@ -26,6 +28,9 @@ public class NoAuthController {
     public Object test() {
         UserInfoBO userInfoBO = PerRequestThreadLocal.getUserInfo();
 
-        return userDao.selectAll();
+        QueryWrapper<UserInfoDo> wrapper = new QueryWrapper<>();
+        wrapper.eq("userName", "bb8");
+
+        return userDao.selectByWrapper(wrapper);
     }
 }

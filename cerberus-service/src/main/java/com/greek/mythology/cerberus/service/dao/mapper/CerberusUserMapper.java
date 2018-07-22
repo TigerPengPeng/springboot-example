@@ -5,7 +5,10 @@
  */
 package com.greek.mythology.cerberus.service.dao.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.greek.mythology.cerberus.common.dao.UserInfoDo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,7 +17,7 @@ import java.util.List;
  *         date 2018年07月23日
  *         desc
  */
-public interface CerberusUserMapper {
+public interface CerberusUserMapper extends BaseMapper<UserInfoDo> {
 
-    List<UserInfoDo> selectAll();
+    List<UserInfoDo> selectListByWrapper(@Param("ew") Wrapper wrapper);
 }

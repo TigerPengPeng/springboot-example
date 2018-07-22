@@ -5,6 +5,7 @@
  */
 package com.greek.mythology.cerberus.service.dao;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.greek.mythology.cerberus.common.dao.UserInfoDo;
 
 import java.util.List;
@@ -16,5 +17,5 @@ import java.util.List;
  */
 public interface UserDao {
 
-    List<UserInfoDo> selectAll();
+    List<UserInfoDo> selectByWrapper(Wrapper wrapper);
 }
