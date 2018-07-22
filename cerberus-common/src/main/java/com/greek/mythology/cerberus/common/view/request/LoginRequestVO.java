@@ -3,7 +3,7 @@
  * All rights reserved.
  * 
  */
-package com.greek.mythology.cerberus.common.login;
+package com.greek.mythology.cerberus.common.view.request;
 
 import lombok.Data;
 
