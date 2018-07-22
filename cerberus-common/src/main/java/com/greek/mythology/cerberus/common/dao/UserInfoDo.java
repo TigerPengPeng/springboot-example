@@ -13,5 +13,7 @@ import lombok.Data;
  *         desc
  */
 @Data
-public class UserInfoDo {
+public class UserInfoDo extends AbstraceBaseDo {
+
+    private String userName;
 }

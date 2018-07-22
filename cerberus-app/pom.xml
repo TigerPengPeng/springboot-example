@@ -65,6 +65,9 @@
 			<resource>
 				<directory>src/main/resources/profiles/${conf-dir}</directory>
 			</resource>
+			<resource>
+				<directory>src/main/resources/base</directory>
+			</resource>
 		</resources>
 
 		<plugins>

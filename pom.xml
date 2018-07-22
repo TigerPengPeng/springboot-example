@@ -31,6 +31,7 @@
 		<apache.commons3.version>3.3.1</apache.commons3.version>
 		<google.guava.version>20.0</google.guava.version>
 		<fastjson.version>1.2.29</fastjson.version>
+		<druid.start.version>1.1.9</druid.start.version>
 	</properties>
 
 	<dependencyManagement>
@@ -78,6 +79,12 @@
 				<version>${spring.version}</version>
 				<scope>test</scope>
 			</dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.start.version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>
