@@ -19,7 +19,7 @@ public class MonitorController {
 
     @HttpResponseAnnotation
     @RequestMapping("/monitor/alive")
-    public String monitorAlive() {
+    public Object monitorAlive() {
         return "ok";
     }
 }

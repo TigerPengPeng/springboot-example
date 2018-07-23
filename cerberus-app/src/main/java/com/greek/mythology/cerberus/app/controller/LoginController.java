@@ -19,13 +19,13 @@ public class LoginController {
 
     @HttpResponseAnnotation
     @PostMapping("/login")
-    public String login() {
+    public Object login() {
         return "login";
     }
 
     @HttpResponseAnnotation
     @PostMapping("/logout")
-    public String logout() {
+    public Object logout() {
         return "logout";
     }
 }
