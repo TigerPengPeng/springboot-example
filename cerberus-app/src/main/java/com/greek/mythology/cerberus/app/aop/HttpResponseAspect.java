@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2015 meituan.com
+ * Copyright (c) 2010-2015 qinlian.com
  * All rights reserved.
  * 
  */
