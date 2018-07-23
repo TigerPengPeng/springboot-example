@@ -8,6 +8,7 @@ package com.greek.mythology.cerberus.app.filter;
 import com.google.common.collect.Sets;
 import com.greek.mythology.cerberus.common.service.UserInfoBO;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
+import com.greek.mythology.cerberus.common.util.UuidUtil;
 import com.greek.mythology.cerberus.service.login.UserTokenService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +61,17 @@ public class AuthTokenFilter extends AbstractWriteResponseFilter implements Filt
             return;
         }
 
-        PerRequestThreadLocal.putUserInfo(userInfoBO);
+        try {
 
-        filterChain.doFilter(servletRequest, servletResponse);
+            PerRequestThreadLocal.putUserInfo(userInfoBO);
+            PerRequestThreadLocal.putUuid(UuidUtil.getUuid());
 
-        PerRequestThreadLocal.clear();
+            filterChain.doFilter(servletRequest, servletResponse);
+
+        } finally {
+            PerRequestThreadLocal.clear();
+        }
+
     }
 
     @Override

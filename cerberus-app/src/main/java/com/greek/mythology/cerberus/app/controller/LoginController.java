@@ -5,6 +5,7 @@
  */
 package com.greek.mythology.cerberus.app.controller;
 
+import com.greek.mythology.cerberus.app.annotation.HttpResponseAnnotation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,11 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
+    @HttpResponseAnnotation
     @PostMapping("/login")
     public String login() {
         return "login";
     }
 
+    @HttpResponseAnnotation
     @PostMapping("/logout")
     public String logout() {
         return "logout";

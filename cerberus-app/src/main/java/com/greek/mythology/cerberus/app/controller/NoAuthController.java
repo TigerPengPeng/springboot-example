@@ -6,6 +6,7 @@
 package com.greek.mythology.cerberus.app.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.greek.mythology.cerberus.app.annotation.HttpResponseAnnotation;
 import com.greek.mythology.cerberus.common.dao.UserInfoDo;
 import com.greek.mythology.cerberus.common.service.UserInfoBO;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
@@ -24,6 +25,7 @@ public class NoAuthController {
     @Autowired
     private UserDao userDao;
 
+    @HttpResponseAnnotation
     @RequestMapping("/test")
     public Object test() {
         UserInfoBO userInfoBO = PerRequestThreadLocal.getUserInfo();

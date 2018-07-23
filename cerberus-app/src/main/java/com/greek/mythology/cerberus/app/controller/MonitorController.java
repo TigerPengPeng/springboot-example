@@ -5,6 +5,7 @@
  */
 package com.greek.mythology.cerberus.app.controller;
 
+import com.greek.mythology.cerberus.app.annotation.HttpResponseAnnotation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MonitorController {
 
+    @HttpResponseAnnotation
     @RequestMapping("/monitor/alive")
     public String monitorAlive() {
         return "ok";
