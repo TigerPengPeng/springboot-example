@@ -12,7 +12,7 @@ import java.util.Date;
  *         date 2018年07月23日
  *         desc
  */
-public abstract class AbstraceBaseDo {
+public abstract class AbstractBaseDo {
     protected long id;
 
     protected Date createTime;

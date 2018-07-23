@@ -5,6 +5,7 @@
  */
 package com.greek.mythology.cerberus.common.view.response;
 
+import com.greek.mythology.cerberus.common.enums.BusinessResultEnum;
 import com.greek.mythology.cerberus.common.exception.BusinessException;
 import lombok.Getter;
 import lombok.ToString;
@@ -26,24 +27,24 @@ public class HttpResponse<T> {
 
     private HttpResponse() {}
 
-    private static HttpResponse new200HttpResponse() {
+    private static HttpResponse newSuccessHttpResponse() {
         HttpResponse httpResponse = new HttpResponse();
-        httpResponse.code = HttpStatus.OK.value();
-        httpResponse.message = HttpStatus.OK.getReasonPhrase();
+        httpResponse.code = BusinessResultEnum.SUCCESS.getCode();
+        httpResponse.message = BusinessResultEnum.SUCCESS.getMessage();
         return httpResponse;
     }
 
-    public static <T> HttpResponse new200HttpResponse(T data) {
+    public static <T> HttpResponse newSuccessHttpResponse(T data) {
         HttpResponse<T> httpResponse = new HttpResponse<>();
-        httpResponse.code = HttpStatus.OK.value();
-        httpResponse.message = HttpStatus.OK.getReasonPhrase();
+        httpResponse.code = BusinessResultEnum.SUCCESS.getCode();
+        httpResponse.message = BusinessResultEnum.SUCCESS.getMessage();
         httpResponse.data = data;
         return httpResponse;
     }
 
     public static HttpResponse newHttpResponse(HttpStatus httpStatus) {
         if (httpStatus == null) {
-            return new200HttpResponse();
+            return newSuccessHttpResponse();
         }
 
         HttpResponse httpResponse = new HttpResponse();
@@ -54,7 +55,7 @@ public class HttpResponse<T> {
 
     public static HttpResponse newHttpResponse(BusinessException e) {
         if (e == null) {
-            return new200HttpResponse();
+            return newSuccessHttpResponse();
         }
 
         HttpResponse httpResponse = new HttpResponse();
@@ -65,7 +66,7 @@ public class HttpResponse<T> {
 
     public static HttpResponse newHttpResponse(Exception e) {
         if (e == null) {
-            return new200HttpResponse();
+            return newSuccessHttpResponse();
         }
 
         return newHttpResponse(HttpStatus.INTERNAL_SERVER_ERROR);

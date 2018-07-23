@@ -40,7 +40,7 @@ public class HttpResponseAspect {
         try {
 
             Object data = joinPoint.proceed(requestArgs);
-            response = HttpResponse.new200HttpResponse(data);
+            response = HttpResponse.newSuccessHttpResponse(data);
 
         } catch (BusinessException e) {
             LOGGER.warn("uuid={}, userInfo={}, requestArgs={}", uuid, currentUserInfo, requestArgs, e);
