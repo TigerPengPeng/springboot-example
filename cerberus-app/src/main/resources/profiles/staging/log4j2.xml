@@ -12,23 +12,7 @@
 
         <RollingFile name="serviceAppender"
                      fileName="${LOG_HOME}/service.log"
-                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/service-%d{-dd-MMMM-yyyy}-%i.log.gz">
-            <PatternLayout>
-                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
-            </PatternLayout>
-            <Policies>
-                <!-- rollover on startup, daily and when the file reaches 512 MegaBytes -->
-                <OnStartupTriggeringPolicy />
-                <SizeBasedTriggeringPolicy size="512 MB" />
-                <TimeBasedTriggeringPolicy />
-            </Policies>
-            <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
-            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
-        </RollingFile>
-
-        <RollingFile name="warmAppender"
-                     fileName="${LOG_HOME}/warm.log"
-                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/warm-%d{-dd-MMMM-yyyy}-%i.log.gz">
+                     filePattern="${LOG_HOME}/service-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
@@ -39,12 +23,30 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
             <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+        </RollingFile>
+
+        <RollingFile name="warmAppender"
+                     fileName="${LOG_HOME}/warm.log"
+                     filePattern="${LOG_HOME}/warm-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- rollover on startup, daily and when the file reaches 512 MegaBytes -->
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="512 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
             <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
         </RollingFile>
 
         <RollingFile name="errorAppender"
                      fileName="${LOG_HOME}/error.log"
-                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/error-%d{-dd-MMMM-yyyy}-%i.log.gz">
+                     filePattern="${LOG_HOME}/error-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <pattern>%d %p %C{1.} [%t] %m%n</pattern>
             </PatternLayout>
