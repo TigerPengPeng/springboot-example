@@ -21,7 +21,7 @@ import org.springframework.http.HttpStatus;
 public class HttpResponse<T> {
     private T data;
 
-    private int code;
+    private int status;
 
     private String message;
 
@@ -29,14 +29,14 @@ public class HttpResponse<T> {
 
     private static HttpResponse newSuccessHttpResponse() {
         HttpResponse httpResponse = new HttpResponse();
-        httpResponse.code = BusinessResultEnum.SUCCESS.getCode();
+        httpResponse.status = BusinessResultEnum.SUCCESS.getCode();
         httpResponse.message = BusinessResultEnum.SUCCESS.getMessage();
         return httpResponse;
     }
 
     public static <T> HttpResponse newSuccessHttpResponse(T data) {
         HttpResponse<T> httpResponse = new HttpResponse<>();
-        httpResponse.code = BusinessResultEnum.SUCCESS.getCode();
+        httpResponse.status = BusinessResultEnum.SUCCESS.getCode();
         httpResponse.message = BusinessResultEnum.SUCCESS.getMessage();
         httpResponse.data = data;
         return httpResponse;
@@ -48,7 +48,7 @@ public class HttpResponse<T> {
         }
 
         HttpResponse httpResponse = new HttpResponse();
-        httpResponse.code = httpStatus.value();
+        httpResponse.status = httpStatus.value();
         httpResponse.message = httpStatus.getReasonPhrase();
         return httpResponse;
     }
@@ -59,7 +59,7 @@ public class HttpResponse<T> {
         }
 
         HttpResponse httpResponse = new HttpResponse();
-        httpResponse.code = e.getType().getCode();
+        httpResponse.status = e.getType().getCode();
         httpResponse.message = e.getExceptionMessage();
         return httpResponse;
     }

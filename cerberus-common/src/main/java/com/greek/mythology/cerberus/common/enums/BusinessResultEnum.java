@@ -32,7 +32,7 @@ public enum  BusinessResultEnum implements IEnum {
      */
     @Override
     public int getCode() {
-        return 0;
+        return this.code;
     }
 
     /**
@@ -42,11 +42,11 @@ public enum  BusinessResultEnum implements IEnum {
      */
     @Override
     public String getMessage() {
-        return null;
+        return this.message;
     }
 
     @Override
     public boolean successCode() {
-        return false;
+        return SUCCESS.getCode() == this.code;
     }
 }
