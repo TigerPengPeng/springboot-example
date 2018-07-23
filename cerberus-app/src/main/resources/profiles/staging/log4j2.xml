@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG_HOME">/opt/com.greek.mythology.cerberus/logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%style{%d{ISO8601}}{black} %highlight{%-5level }[%style{%t}{bright,blue}] %style{%C{1.}}{bright,yellow}: %msg%n%throwable" />
+        </Console>
+
+        <RollingFile name="serviceAppender"
+                     fileName="${LOG_HOME}/service.log"
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/service-%d{-dd-MMMM-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- rollover on startup, daily and when the file reaches 512 MegaBytes -->
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="512 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+        </RollingFile>
+
+        <RollingFile name="warmAppender"
+                     fileName="${LOG_HOME}/warm.log"
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/warm-%d{-dd-MMMM-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- rollover on startup, daily and when the file reaches 512 MegaBytes -->
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="512 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+        </RollingFile>
+
+        <RollingFile name="errorAppender"
+                     fileName="${LOG_HOME}/error.log"
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/error-%d{-dd-MMMM-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <!-- rollover on startup, daily and when the file reaches 512 MegaBytes -->
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="512 MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <!-- LOG everything at INFO level -->
+        <Root level="INFO">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="serviceAppender" />
+            <AppenderRef ref="warmAppender" />
+            <AppenderRef ref="errorAppender" />
+        </Root>
+
+    </Loggers>
+
+</Configuration>
