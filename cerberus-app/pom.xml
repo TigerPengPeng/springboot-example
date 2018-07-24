@@ -76,6 +76,12 @@
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-core</artifactId>
+			<version>4.1.3</version>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
