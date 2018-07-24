@@ -3,7 +3,7 @@
  * All rights reserved.
  * 
  */
-package com.greek.mythology.cerberus.common.view.response;
+package com.greek.mythology.cerberus.common.model.view.response;
 
 import com.greek.mythology.cerberus.common.enums.BusinessResultEnum;
 import com.greek.mythology.cerberus.common.exception.BusinessException;

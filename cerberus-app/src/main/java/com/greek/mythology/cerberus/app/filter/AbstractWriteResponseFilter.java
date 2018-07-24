@@ -6,7 +6,7 @@
 package com.greek.mythology.cerberus.app.filter;
 
 import com.alibaba.fastjson.JSON;
-import com.greek.mythology.cerberus.common.view.response.HttpResponse;
+import com.greek.mythology.cerberus.common.model.view.response.HttpResponse;
 import org.springframework.http.HttpStatus;
 
 import javax.servlet.ServletResponse;

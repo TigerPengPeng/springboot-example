@@ -3,9 +3,9 @@
  * All rights reserved.
  * 
  */
-package com.greek.mythology.cerberus.service.login;
+package com.greek.mythology.cerberus.service.user;
 
-import com.greek.mythology.cerberus.common.service.UserInfoBO;
+import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
 
 /**
  * @author huangpeng
@@ -19,5 +19,5 @@ public interface UserTokenService {
       * @param token
       * @return
       */
-     UserInfoBO getUserByToken(String token);
+     CerberusUser getUserByToken(String token);
 }

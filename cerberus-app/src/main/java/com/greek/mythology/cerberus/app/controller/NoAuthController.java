@@ -7,10 +7,9 @@ package com.greek.mythology.cerberus.app.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.greek.mythology.cerberus.app.annotation.HttpResponseAnnotation;
-import com.greek.mythology.cerberus.common.dao.UserInfoDo;
-import com.greek.mythology.cerberus.common.service.UserInfoBO;
+import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
-import com.greek.mythology.cerberus.service.dao.UserDao;
+import com.greek.mythology.cerberus.service.user.CerberusUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,16 +22,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class NoAuthController {
     @Autowired
-    private UserDao userDao;
+    private CerberusUserService cerberusUserService;
 
     @HttpResponseAnnotation
     @RequestMapping("/test")
     public Object test() {
-        UserInfoBO userInfoBO = PerRequestThreadLocal.getUserInfo();
+        CerberusUser userInfoBO = PerRequestThreadLocal.getUserInfo();
+        QueryWrapper<CerberusUser> queryWrapper = new QueryWrapper<>();
+        queryWrapper.ge("id", 0L);
 
-        QueryWrapper<UserInfoDo> wrapper = new QueryWrapper<>();
-        wrapper.eq("userName", "bb8");
-
-        return userDao.selectByWrapper(wrapper);
+        return cerberusUserService.selectList(queryWrapper);
     }
 }

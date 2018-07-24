@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2015 meituan.com
+ * Copyright (c) 2010-2015
  * All rights reserved.
  * 
  */
@@ -35,7 +35,6 @@ public class MybatisCodeGenerator {
         for (TableInfo tableInfo : tableInfoList) {
             Map<String, Object> objectMap = templateEngine.getObjectMap(tableInfo);
             Map<String, String> pathInfo = templateEngine.getConfigBuilder().getPathInfo();
-            TemplateConfig template = templateEngine.getConfigBuilder().getTemplate();
 
             String entityName = tableInfo.getEntityName();
 

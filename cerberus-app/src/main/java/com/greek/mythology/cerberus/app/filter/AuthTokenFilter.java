@@ -6,10 +6,10 @@
 package com.greek.mythology.cerberus.app.filter;
 
 import com.google.common.collect.Sets;
-import com.greek.mythology.cerberus.common.service.UserInfoBO;
+import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
 import com.greek.mythology.cerberus.common.util.UuidUtil;
-import com.greek.mythology.cerberus.service.login.UserTokenService;
+import com.greek.mythology.cerberus.service.user.UserTokenService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,7 +55,7 @@ public class AuthTokenFilter extends AbstractWriteResponseFilter implements Filt
             return;
         }
 
-        UserInfoBO userInfoBO = userTokenService.getUserByToken(token);
+        CerberusUser userInfoBO = userTokenService.getUserByToken(token);
         if (userInfoBO == null) {
             writeResponse(servletResponse, HttpStatus.UNAUTHORIZED);
             return;

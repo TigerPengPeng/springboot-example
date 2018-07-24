@@ -21,7 +21,7 @@ public class MybatisMapperConfig {
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
         scannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        scannerConfigurer.setBasePackage("com.greek.mythology.cerberus.service.dao.mapper");
+        scannerConfigurer.setBasePackage("com.greek.mythology.cerberus.service.mapper");
         return scannerConfigurer;
     }
 }

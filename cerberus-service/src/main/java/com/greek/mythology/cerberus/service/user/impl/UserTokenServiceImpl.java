@@ -3,10 +3,10 @@
  * All rights reserved.
  * 
  */
-package com.greek.mythology.cerberus.service.login.impl;
+package com.greek.mythology.cerberus.service.user.impl;
 
-import com.greek.mythology.cerberus.common.service.UserInfoBO;
-import com.greek.mythology.cerberus.service.login.UserTokenService;
+import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
+import com.greek.mythology.cerberus.service.user.UserTokenService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,7 +21,7 @@ public class UserTokenServiceImpl implements UserTokenService {
      * @return
      */
     @Override
-    public UserInfoBO getUserByToken(String token) {
-        return new UserInfoBO();
+    public CerberusUser getUserByToken(String token) {
+        return new CerberusUser();
     }
 }
