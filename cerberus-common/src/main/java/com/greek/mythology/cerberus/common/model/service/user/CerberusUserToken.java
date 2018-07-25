@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author huangpeng
- * @since 2018-07-24
+ * @since 2018-07-25
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -25,7 +25,7 @@ public class CerberusUserToken implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 唯一id（token）
+     * 唯一id
      */
     @TableId(value = "id", type = IdType.ID_WORKER)
     private Long id;
@@ -39,6 +39,11 @@ public class CerberusUserToken implements Serializable {
      * 记录更新时间
      */
     private LocalDateTime updateTime;
+
+    /**
+     * token MD5(id)
+     */
+    private String token;
 
     /**
      * cerberus_user.id

@@ -14,6 +14,7 @@ public class CerberusUserTokenDo implements Serializable{
     private Long id;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
+    private String token;
     private Long userId;
     private Integer loginRole;
     private Integer loginTenandId;
@@ -24,6 +25,7 @@ public class CerberusUserTokenDo implements Serializable{
         entity.setId(id);
         entity.setCreateTime(createTime);
         entity.setUpdateTime(updateTime);
+        entity.setToken(token);
         entity.setUserId(userId);
         entity.setLoginRole(loginRole);
         entity.setLoginTenandId(loginTenandId);

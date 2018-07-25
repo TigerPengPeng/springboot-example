@@ -18,7 +18,7 @@ public class MybatisCodeGeneratorApplication {
 	}
 
 	public static void generateCode() throws Exception {
-		String packageName = "com.greek.mythology.cerberus.common";
+		String packageName = "com.greek.mythology.cerberus.common.templates";
         //user -> UserService, 设置成true: user -> IUserService
 		boolean serviceNameStartWithI = false;
 		generateByTables(serviceNameStartWithI, packageName, "cerberus_user", "cerberus_user_token");

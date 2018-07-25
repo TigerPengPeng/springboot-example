@@ -9,7 +9,7 @@ import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
  * </p>
  *
  * @author huangpeng
- * @since 2018-07-24
+ * @since 2018-07-25
  */
 public interface CerberusUserMapper extends BaseMapper<CerberusUser> {
 

@@ -8,7 +8,6 @@ package com.greek.mythology.cerberus.app.mybatis.plus;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.ConstVal;
-import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine;
 
@@ -38,7 +37,7 @@ public class MybatisCodeGenerator {
 
             String entityName = tableInfo.getEntityName();
 
-            String formClassPackage = basePackage + ".common.dao";
+            String formClassPackage = basePackage;
             String formClassName = Objects.toString(objectMap.get("entity")) + "Do";
             String baseClassPath = pathInfo.get(ConstVal.CONTROLLER_PATH);
             String formClassPath = StrUtil.subBefore(baseClassPath, File.separator, true) + File.separator + "model" + File.separator + "dao" + File.separator + formClassName + ConstVal.JAVA_SUFFIX;

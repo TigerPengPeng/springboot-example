@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author huangpeng
- * @since 2018-07-24
+ * @since 2018-07-25
  */
 @Service
 public class CerberusUserTokenServiceImpl extends ServiceImpl<CerberusUserTokenMapper, CerberusUserToken> implements CerberusUserTokenService {
