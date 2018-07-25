@@ -6,7 +6,7 @@
 package com.greek.mythology.cerberus.app.aop;
 
 import com.greek.mythology.cerberus.common.exception.BusinessException;
-import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
+import com.greek.mythology.cerberus.common.model.service.user.UserInfoBO;
 import com.greek.mythology.cerberus.common.model.view.response.HttpResponse;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -35,7 +35,7 @@ public class HttpResponseAspect {
         Object response = null;
 
         String uuid = PerRequestThreadLocal.getUuid();
-        CerberusUser currentUserInfo = PerRequestThreadLocal.getUserInfo();
+        UserInfoBO currentUserInfo = PerRequestThreadLocal.getUserInfo();
 
         try {
 

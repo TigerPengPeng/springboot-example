@@ -5,7 +5,7 @@
  */
 package com.greek.mythology.cerberus.common.threadlocal;
 
-import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
+import com.greek.mythology.cerberus.common.model.service.user.UserInfoBO;
 import lombok.Data;
 
 /**
@@ -23,11 +23,11 @@ public class PerRequestThreadLocal {
         }
     };
 
-    public static void putUserInfo(CerberusUser userInfoBO) {
+    public static void putUserInfo(UserInfoBO userInfoBO) {
         threadLocal.get().setUserInfoBO(userInfoBO);
     }
 
-    public static CerberusUser getUserInfo() {
+    public static UserInfoBO getUserInfo() {
         return threadLocal.get().getUserInfoBO();
     }
 
@@ -45,7 +45,7 @@ public class PerRequestThreadLocal {
 
     @Data
     private static class PerRequestBO {
-        private CerberusUser userInfoBO;
+        private UserInfoBO userInfoBO;
 
         private String uuid;
     }

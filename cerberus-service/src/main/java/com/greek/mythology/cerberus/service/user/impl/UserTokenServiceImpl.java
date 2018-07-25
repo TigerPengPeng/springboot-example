@@ -5,7 +5,7 @@
  */
 package com.greek.mythology.cerberus.service.user.impl;
 
-import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
+import com.greek.mythology.cerberus.common.model.service.user.UserInfoBO;
 import com.greek.mythology.cerberus.service.user.UserTokenService;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +16,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserTokenServiceImpl implements UserTokenService {
+
     /**
      * @param token
      * @return
      */
     @Override
-    public CerberusUser getUserByToken(String token) {
-        return new CerberusUser();
+    public UserInfoBO getUserByToken(String token) {
+        return new UserInfoBO();
     }
 }

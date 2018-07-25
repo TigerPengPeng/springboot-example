@@ -3,11 +3,10 @@
  * All rights reserved.
  * 
  */
-package com.greek.mythology.cerberus.app.controller.converter;
+package com.greek.mythology.cerberus.service.util.converter;
 
+import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
 import com.greek.mythology.cerberus.common.model.service.user.UserInfoBO;
-import com.greek.mythology.cerberus.common.model.view.response.CerberusUserVO;
-import com.greek.mythology.cerberus.common.util.DateUtil;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
@@ -20,25 +19,25 @@ import java.util.stream.Collectors;
  *         date 2018年07月25日
  *         desc
  */
-public class CerberusUserConverter {
-    private CerberusUserConverter() {}
+public class UserInfoConverter {
+    private UserInfoConverter() {}
 
-    public static List<CerberusUserVO> convertTOCerberusUserVO(Collection<UserInfoBO> collection) {
+    public static List<UserInfoBO> convertTOCerberusUserVO(Collection<CerberusUser> collection) {
         if (CollectionUtils.isEmpty(collection)) {
             return Collections.emptyList();
         }
 
-        return collection.stream().map(CerberusUserConverter::convertTOCerberusUserVO).collect(Collectors.toList());
+        return collection.stream().map(UserInfoConverter::convertTOCerberusUserVO).collect(Collectors.toList());
     }
 
-    public static CerberusUserVO convertTOCerberusUserVO(UserInfoBO o) {
+    public static UserInfoBO convertTOCerberusUserVO(CerberusUser o) {
         if (o == null) {
             return null;
         }
 
-        CerberusUserVO v = new CerberusUserVO();
-        v.setCreateTime(DateUtil.localDateTimeToDate(o.getCreateTime()));
-        v.setUpdateTime(DateUtil.localDateTimeToDate(o.getUpdateTime()));
+        UserInfoBO v = new UserInfoBO();
+        v.setCreateTime(o.getCreateTime());
+        v.setUpdateTime(o.getUpdateTime());
         v.setUsername(o.getUsername());
         v.setTenantId(o.getTenantId());
         v.setJobId(o.getJobId());

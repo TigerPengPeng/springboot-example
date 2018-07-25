@@ -6,7 +6,7 @@
 package com.greek.mythology.cerberus.app.filter;
 
 import com.google.common.collect.Sets;
-import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
+import com.greek.mythology.cerberus.common.model.service.user.UserInfoBO;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
 import com.greek.mythology.cerberus.common.util.UuidUtil;
 import com.greek.mythology.cerberus.service.user.UserTokenService;
@@ -55,7 +55,7 @@ public class AuthTokenFilter extends AbstractWriteResponseFilter implements Filt
             return;
         }
 
-        CerberusUser userInfoBO = userTokenService.getUserByToken(token);
+        UserInfoBO userInfoBO = userTokenService.getUserByToken(token);
         if (userInfoBO == null) {
             writeResponse(servletResponse, HttpStatus.UNAUTHORIZED);
             return;
