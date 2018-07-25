@@ -7,12 +7,15 @@ package com.greek.mythology.cerberus.app.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.greek.mythology.cerberus.app.annotation.HttpResponseAnnotation;
+import com.greek.mythology.cerberus.app.controller.converter.CerberusUserConverter;
 import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
 import com.greek.mythology.cerberus.common.threadlocal.PerRequestThreadLocal;
 import com.greek.mythology.cerberus.service.user.CerberusUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author huangpeng
@@ -31,6 +34,7 @@ public class NoAuthController {
         QueryWrapper<CerberusUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.ge("id", 0L);
 
-        return cerberusUserService.selectList(queryWrapper);
+        List<CerberusUser> cerberusUsers = cerberusUserService.selectList(queryWrapper);
+        return CerberusUserConverter.convertTOCerberusUserVO(cerberusUsers);
     }
 }
