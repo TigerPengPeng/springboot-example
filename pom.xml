@@ -85,32 +85,11 @@
 				<artifactId>mybatis-plus-annotation</artifactId>
 				<version>${mybatis.plus.version}</version>
 			</dependency>
-			<!--<dependency>-->
-				<!--<groupId>com.baomidou</groupId>-->
-				<!--<artifactId>mybatis-plus</artifactId>-->
-				<!--<version>${mybatis.plus.version}</version>-->
-			<!--</dependency>-->
-			<!--<dependency>-->
-				<!--<groupId>org.mybatis.spring.boot</groupId>-->
-				<!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
-				<!--<version>${mybatis.springboot.starter.version}</version>-->
-                <!--<exclusions>-->
-					<!--<exclusion>-->
-						<!--<groupId>org.mybatis</groupId>-->
-						<!--<artifactId>mybatis</artifactId>-->
-					<!--</exclusion>-->
-					<!--<exclusion>-->
-						<!--<groupId>org.mybatis</groupId>-->
-						<!--<artifactId>mybatis-spring</artifactId>-->
-					<!--</exclusion>-->
-				<!--</exclusions>-->
-			<!--</dependency>-->
-
 			<!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
 			<dependency>
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
-				<version>3.0-beta</version>
+				<version>${mybatis.plus.version}</version>
 			</dependency>
 
 
