@@ -5,7 +5,7 @@
  */
 package com.greek.mythology.cerberus.service.user.impl;
 
-import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
+import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
 import com.greek.mythology.cerberus.service.user.UserTokenService;
 import org.springframework.stereotype.Service;
 

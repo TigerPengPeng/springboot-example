@@ -5,7 +5,7 @@
  */
 package com.greek.mythology.cerberus.app.controller.converter;
 
-import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
+import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
 import com.greek.mythology.cerberus.common.model.view.response.CerberusUserVO;
 import com.greek.mythology.cerberus.common.util.DateUtil;
 import org.springframework.util.CollectionUtils;

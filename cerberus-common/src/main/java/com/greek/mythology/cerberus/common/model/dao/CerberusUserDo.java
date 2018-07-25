@@ -1,6 +1,5 @@
 package com.greek.mythology.cerberus.common.model.dao;
 
-import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
 import lombok.Data;
 
 import java.io.Serializable;

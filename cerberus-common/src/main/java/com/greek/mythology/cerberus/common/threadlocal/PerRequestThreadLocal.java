@@ -5,7 +5,7 @@
  */
 package com.greek.mythology.cerberus.common.threadlocal;
 
-import com.greek.mythology.cerberus.common.model.service.user.CerberusUser;
+import com.greek.mythology.cerberus.common.model.dao.CerberusUser;
 import lombok.Data;
 
 /**

@@ -1,7 +1,7 @@
 package com.greek.mythology.cerberus.service.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.greek.mythology.cerberus.common.model.service.user.CerberusUserToken;
+import com.greek.mythology.cerberus.common.model.dao.CerberusUserToken;
 
 /**
  * <p>

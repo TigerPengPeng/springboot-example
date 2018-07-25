@@ -1,4 +1,4 @@
-package com.greek.mythology.cerberus.common.model.service.user;
+package com.greek.mythology.cerberus.common.model.dao;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class CerberusUser implements Serializable {
+public class CerberusUserToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -41,49 +41,29 @@ public class CerberusUser implements Serializable {
     private LocalDateTime updateTime;
 
     /**
-     * 账号
+     * token MD5(id)
      */
-    private String username;
+    private String token;
 
     /**
-     * 密码
+     * cerberus_user.id
      */
-    private String password;
+    private Long userId;
 
     /**
-     * 所属机构ID
+     * 当时登录的角色
      */
-    private Integer tenantId;
+    private Integer loginRole;
 
     /**
-     * 工号ID
+     * 当时登录的机构ID
      */
-    private String jobId;
+    private Integer loginTenantId;
 
     /**
-     * 角色. 用bit位来标记角色: 1客户经理／2信审人员／4绿色金融管理人员／8风险管理人员
+     * 1:有效 0:无效
      */
-    private Integer role;
-
-    /**
-     * 能看见的菜单列表
-     */
-    private Integer menuAuth;
-
-    /**
-     * 真实姓名
-     */
-    private String realName;
-
-    /**
-     * 联系电话
-     */
-    private String tel;
-
-    /**
-     * 邮箱
-     */
-    private String email;
+    private Integer status;
 
 
 }
