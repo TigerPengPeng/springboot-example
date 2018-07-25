@@ -58,7 +58,7 @@ public class CerberusUserToken implements Serializable {
     /**
      * 当时登录的机构ID
      */
-    private Integer loginTenandId;
+    private Integer loginTenantId;
 
     /**
      * 1:有效 0:无效

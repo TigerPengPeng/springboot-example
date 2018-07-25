@@ -17,7 +17,7 @@ public class CerberusUserTokenDo implements Serializable{
     private String token;
     private Long userId;
     private Integer loginRole;
-    private Integer loginTenandId;
+    private Integer loginTenantId;
     private Integer status;
 
     public CerberusUserToken toDbEntity(){
@@ -28,7 +28,7 @@ public class CerberusUserTokenDo implements Serializable{
         entity.setToken(token);
         entity.setUserId(userId);
         entity.setLoginRole(loginRole);
-        entity.setLoginTenandId(loginTenandId);
+        entity.setLoginTenantId(loginTenantId);
         entity.setStatus(status);
         return entity;
     }
